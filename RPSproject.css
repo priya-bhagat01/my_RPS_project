@@ -1,0 +1,118 @@
+body {
+	background-image: url("BackgroundImage.jpg");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	min-height: 100vh;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	/*overflow: hidden;*/
+	text-align: center;
+}
+#Para{
+	font-size: 50px;
+	/*color: #F5F5DC;*/ /*(Beige)*/
+	color: #FFE4E1; /*(Misty rose)*/
+	/*color: #FFB6C1; (Light Pink)*/
+	margin-top: 20px;
+	padding-top: 20px;
+	/*margin-bottom: 0px;*/
+	padding-bottom: 0px;
+}
+#rock{
+	background-image: url("RockImage.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 200px;
+	height: 200px;
+	padding: 0;
+	border: 1px; 
+	border-radius: 50%;
+	cursor: pointer;
+}
+#paper{
+	background-image: url("PaperImage.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 200px;
+	height: 200px;
+	padding: 0;
+	border: 1px; 
+	border-radius: 50%;
+	cursor: pointer;
+}
+#scissor{
+	background-image: url("ScissorImage.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 200px;
+	height: 200px;
+	padding: 0;
+	border: 1px; 
+	border-radius: 50%;
+	cursor: pointer;
+}
+#reset{
+	font-size: 35px;
+	font-family: sans-serif;
+	color: #FFB6C1;
+	background-color: #4B0082;
+}
+.game-container{
+	font-family: 'Segoe UI' , Tahoma, Geneva, Verdana, sans-serif;
+}
+.result-button{
+	/*color: #FFEFD5; (Papaya)*/
+	color: #FFDAB9;
+	font-size: 2rem;
+	margin-bottom: 10px;
+	/*min-height: 45px;*/
+}
+.moves-button{
+	display: flex;
+	justify-content: center;
+	gap: 15px;
+	font-weight: 600;
+	font-size: 1.5rem;
+	/*color: #FFF5EE; (Seashell)*/
+	color: #FFF0F5;
+	margin-bottom: 30px;
+	font-style: italic;
+	/*min-height: 25px;*/
+}
+.score-button{
+	display: inline-block;
+	font-size: 1rem;
+	font-weight: 600;
+	border-radius: 25px;
+	letter-spacing: 0.5px;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+	/*background-color: #C71585;*/
+	background-color: #8B008B;
+	color: #fff;
+}
+/*.move-icon{
+	width: 200px;
+	height: 200px;
+	object-fit: contain;
+	padding: 8px;
+	border-radius: 50%;
+	border: 1px;
+	padding: 0;
+}*/
+.move-icon{
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+	width: 150px;
+	height: 150px;
+	padding: 0;
+	border: 2px; 
+	border-radius: 50%;
+	cursor: pointer;
+	vertical-align: middle;
+}
