@@ -102,4 +102,24 @@ updateScore();
     return computerMove;
   }
 
-	
+  const autoPlay = document.querySelector('.auto')
+  let isAutoPlaying = false;
+  let intervalId ='';
+
+  autoPlay.addEventListener('click', function () {
+    if (isAutoPlaying === false) {
+     autoPlay.innerHTML = 'Stop-Playing'
+     isAutoPlaying = true
+        intervalId = setInterval(function() {
+           const playerChoice = pickComputerMove();
+           playGame(playerChoice);
+           //playGame(pickComputerMove()); works but above code is easier to read
+        }, 1250); 
+    }else {
+     autoPlay.innerHTML = 'Auto-Play'
+     isAutoPlaying = false
+        clearInterval(intervalId)
+    }       
+   });
+
+   

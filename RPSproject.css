@@ -116,3 +116,9 @@ body {
 	cursor: pointer;
 	vertical-align: middle;
 }
+.auto{
+	font-size: 35px;
+	font-family: sans-serif;
+	color: #FFB6C1;
+	background-color: #4B0082;
+}
