@@ -1,20 +1,21 @@
 "use strict"; //(removes hidden unicode characters and global scope pollution)
- 
-	let score = JSON.parse(localStorage.getItem('score')) || {
-		wins : 0,
-	    losses : 0,
-		ties : 0,
-	};
-// OR
-	// if (!score) {
-	// 	score = {
-	// 		wins : 0,
-	//         losses : 0,
-	// 		ties : 0,
-	// 	};
-	// }
 
-        updateMoves();
+let score = JSON.parse(localStorage.getItem('score')) || {
+	wins : 0,
+    losses : 0,
+	ties : 0,
+	};
+
+// OR
+// if (!score) {
+// 	score = {
+// 		wins : 0,
+//         losses : 0,
+// 		ties : 0,
+// 	};
+// }
+
+updateMoves();
 
 function playGame(playerMove) {
 	const computerMove = pickComputerMove();
@@ -61,21 +62,21 @@ updateScore();
 // wins : ${score.wins}, losses : ${score.losses}, ties : ${score.ties} `);
 };
 
-  function updateScore() {
+function updateScore() {
 	document.querySelector('.score-button')
 	    .innerHTML = `wins : ${score.wins}, losses : ${score.losses}, ties : ${score.ties}`;	    	
-  };
+};
 
-  function updateResult(result) {
+function updateResult(result) {
   	document.querySelector('.result-button')
   	    .innerHTML = `${result}`
-  };
+};
 
-  function updateMoves(playerMove, computerMove) {
+function updateMoves(playerMove, computerMove) {
     if (!playerMove||!computerMove) {
-    document.querySelector('.moves-button')
-        .innerHTML = ''; 
-        return;
+      document.querySelector('.moves-button')
+         .innerHTML = ''; 
+      return;
     }
     const imageUrls = {
         rock: 'RockImage.png',
@@ -86,9 +87,9 @@ updateScore();
   	    .innerHTML = `You <img src="${imageUrls[playerMove]}" class="move-icon" alt="${playerMove}"> 
         vs
         <img src="${imageUrls[computerMove]}" class="move-icon" alt="${computerMove}">Computer`;
-  };
+};
 
-  function pickComputerMove() {
+function pickComputerMove() {
     const randomNumber = Math.random();	
     let computerMove = '';
 	  		 	  
@@ -100,17 +101,17 @@ updateScore();
        computerMove = 'scissor'
     }
     return computerMove;
-  }
+}
 
-  const autoPlay = document.querySelector('.auto')
-  let isAutoPlaying = false;
-  let intervalId ='';
+const autoPlay = document.querySelector('.auto')
+let isAutoPlaying = false;
+let intervalId ='';
 
-  autoPlay.addEventListener('click', function () {
+autoPlay.addEventListener('click', () => {
     if (isAutoPlaying === false) {
      autoPlay.innerHTML = 'Stop-Playing'
      isAutoPlaying = true
-        intervalId = setInterval(function() {
+        intervalId = setInterval(() => {
            const playerChoice = pickComputerMove();
            playGame(playerChoice);
            //playGame(pickComputerMove()); works but above code is easier to read
@@ -120,6 +121,17 @@ updateScore();
      isAutoPlaying = false
         clearInterval(intervalId)
     }       
-   });
+});
 
-   
+const rockButton = document.querySelector('#rock')
+rockButton.addEventListener('click', () => {
+    playGame('rock')
+} );
+const paperButton = document.querySelector('#paper')
+paperButton.addEventListener('click', () => {
+    playGame('paper')
+} );
+const scissorButton = document.querySelector('#scissor')
+scissorButton.addEventListener('click', () => {
+    playGame('scissor')
+} );
