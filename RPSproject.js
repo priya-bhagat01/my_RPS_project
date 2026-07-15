@@ -127,11 +127,22 @@ const rockButton = document.querySelector('#rock')
 rockButton.addEventListener('click', () => {
     playGame('rock')
 } );
+
 const paperButton = document.querySelector('#paper')
 paperButton.addEventListener('click', () => {
     playGame('paper')
 } );
+
 const scissorButton = document.querySelector('#scissor')
 scissorButton.addEventListener('click', () => {
     playGame('scissor')
 } );
+
+const resetButton = document.querySelector('#reset')
+resetButton.addEventListener('click', () => {
+    score.wins = 0;
+    score.losses = 0;
+    score.ties = 0;
+    localStorage.removeItem('score');
+    updateScore();
+})
