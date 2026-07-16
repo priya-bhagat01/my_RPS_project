@@ -107,7 +107,7 @@ const autoPlay = document.querySelector('.auto')
 let isAutoPlaying = false;
 let intervalId ='';
 
-autoPlay.addEventListener('click', () => {
+function toAutoPlay () {
     if (isAutoPlaying === false) {
      autoPlay.innerHTML = 'Stop-Playing'
      isAutoPlaying = true
@@ -120,7 +120,10 @@ autoPlay.addEventListener('click', () => {
      autoPlay.innerHTML = 'Auto-Play'
      isAutoPlaying = false
         clearInterval(intervalId)
-    }       
+    }   
+}   
+autoPlay.addEventListener('click', () => {
+    toAutoPlay();
 });
 
 const rockButton = document.querySelector('#rock')
@@ -139,13 +142,18 @@ scissorButton.addEventListener('click', () => {
 } );
 
 const resetButton = document.querySelector('#reset')
-resetButton.addEventListener('click', () => {
+function toReset () {
     score.wins = 0;
     score.losses = 0;
     score.ties = 0;
     localStorage.removeItem('score');
     updateScore();
-})
+    alert('Are You Sure You Want to Reset Score')
+}
+
+resetButton.addEventListener('click', () => {
+    toReset();
+});
 
 document.body.addEventListener('keydown', (event) => {
     if (event.key === 'r') {
@@ -154,5 +162,9 @@ document.body.addEventListener('keydown', (event) => {
         playGame('paper')
     } else if (event.key === 's') {
         playGame('scissor')
+    } else if (event.key === 'a') {
+        toAutoPlay();
+    } else if (event.key === 'Backspace') {
+        toReset();
     }
 });
