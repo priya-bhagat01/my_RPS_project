@@ -122,3 +122,24 @@ body {
 	color: #FFB6C1;
 	background-color: #4B0082;
 }
+.container{
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	gap: 10px;
+	font-size: 40px;
+	color: #FFE4E1; 
+	margin-bottom: 0px;
+	padding-bottom: 0px;
+	align-items: center;
+	text-align: center;
+	margin-right: 20px;
+	padding-right: 20px;
+}
+.confirm-yes,
+.confirm-no{
+	font-size: 35px;
+	font-family: sans-serif;
+	color: #FFB6C1;
+	background-color: #4B0082;
+}

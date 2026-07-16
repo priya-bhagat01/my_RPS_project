@@ -147,12 +147,32 @@ function toReset () {
     score.losses = 0;
     score.ties = 0;
     localStorage.removeItem('score');
-    updateScore();
-    alert('Are You Sure You Want to Reset Score')
+    updateScore();  
+}
+
+function showConfirmation() {
+    const html = `
+      <div class = "container"
+      <p class= "reset-para">Are You Sure You Want to Reset the Score</p>
+
+      <button class= "confirm-yes" onclick= "
+         toReset();
+         document.querySelector('.confirmation-button')
+          .innerHTML = '';
+      ">Yes</button>
+
+      <button class= "confirm-no" onclick= "
+         document.querySelector('.confirmation-button')
+          .innerHTML = '';
+      ">No</button>
+      </div>`;
+       
+    document.querySelector('.confirmation-button')
+      .innerHTML = html
 }
 
 resetButton.addEventListener('click', () => {
-    toReset();
+    showConfirmation();
 });
 
 document.body.addEventListener('keydown', (event) => {
@@ -165,6 +185,6 @@ document.body.addEventListener('keydown', (event) => {
     } else if (event.key === 'a') {
         toAutoPlay();
     } else if (event.key === 'Backspace') {
-        toReset();
+        showConfirmation();
     }
 });
